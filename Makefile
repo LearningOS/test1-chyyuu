@@ -2,7 +2,9 @@ DOCKER_NAME ?= dinghao188/rcore-tutorial
 .PHONY: default docker build_docker
 
 default:
+	make  -C os build
 	echo 1
+
 docker:
 	docker run --rm -it --mount type=bind,source=$(shell pwd),destination=/mnt ${DOCKER_NAME}
 
