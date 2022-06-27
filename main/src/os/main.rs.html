@@ -149,8 +149,8 @@
     <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::board::QEMUExit</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;board_qemu&quot;</span>)]</span>
-    <span class="ident"><span class="kw">crate</span>::board::QEMU_EXIT_HANDLE</span>.<span class="ident">exit_success</span>(); <span class="comment">// CI autotest success</span>
-    <span class="comment">//crate::board::QEMU_EXIT_HANDLE.exit_failure(); // CI autoest failed</span>
+    <span class="comment">//crate::board::QEMU_EXIT_HANDLE.exit_success(); // CI autotest success</span>
+    <span class="ident"><span class="kw">crate</span>::board::QEMU_EXIT_HANDLE</span>.<span class="ident">exit_failure</span>(); <span class="comment">// CI autoest failed</span>
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;board_k210&quot;</span>)]</span>
     <span class="macro">panic!</span>(<span class="string">&quot;Unreachable in rust_main!&quot;</span>);
