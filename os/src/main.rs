@@ -61,12 +61,15 @@ pub fn rust_main() -> ! {
     );
     println!(".bss [{:#x}, {:#x})", sbss as usize, ebss as usize);
 
+    //exception for this mem read
+    //println!("{}", unsafe { (0x8010_0000 as *const usize).read() });
+
     #[cfg(feature = "board_qemu")]
     use crate::board::QEMUExit;
 
     #[cfg(feature = "board_qemu")]
-    crate::board::QEMU_EXIT_HANDLE.exit_success(); // CI autotest success
-    //crate::board::QEMU_EXIT_HANDLE.exit_failure(); // CI autoest failed
+    //crate::board::QEMU_EXIT_HANDLE.exit_success(); // CI autotest success
+    crate::board::QEMU_EXIT_HANDLE.exit_failure(); // CI autoest failed
 
     #[cfg(feature = "board_k210")]
     panic!("Unreachable in rust_main!");
